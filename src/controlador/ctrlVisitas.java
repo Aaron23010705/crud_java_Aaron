@@ -25,6 +25,9 @@ public class ctrlVisitas implements MouseListener {
        vistas.btnEliminar.addMouseListener(this);
        vistas.btnBuscar.addMouseListener(this);
        vistas.btnLimpiar.addMouseListener(this);
+       
+       
+       modelo.Mostrar(vistas.jtbPacientes);
 
 
    }

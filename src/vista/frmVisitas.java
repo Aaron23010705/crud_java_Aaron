@@ -58,8 +58,8 @@ public class frmVisitas extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setText("CRUD Enfermeria Ricaldone");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
+        jLabel1.setText("CRUD ENFERMERIA RICALDONE");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
         jPanel1.add(txtEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 480, 40));
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 480, 40));
         jPanel1.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 480, 40));

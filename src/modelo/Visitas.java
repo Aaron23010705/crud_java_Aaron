@@ -6,6 +6,8 @@ package modelo;
 
 import java.sql.*;
 import java.util.UUID;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 
 public class Visitas {
@@ -67,4 +69,32 @@ public class Visitas {
             System.out.println("este es el error en el modelo:metodo guardar " + ex);
         }
     }
-}
+    
+    public void Mostrar(JTable tabla){
+   //Creamos una variable de la clase de conexion
+    Connection conexion = ClaseConexion.getConexion();
+    //Definimos el modelo de la tabla
+        DefaultTableModel modeloDeDatos = new DefaultTableModel();
+        modeloDeDatos.setColumnIdentifiers(new Object[]{"UUID_paciente", "Nombre", "Edad", "Especialidad"});
+        try {
+            //Creamos un Statement
+            Statement statement = conexion.createStatement();
+            //Ejecutamos el Statement con la consulta y lo asignamos a una variable de tipo ResultSet
+            ResultSet rs = statement.executeQuery("SELECT * FROM TBVISITAS");
+            //Recorremos el ResultSet
+            while (rs.next()) {
+                //Llenamos el modelo por cada vez que recorremos el resultSet
+                modeloDeDatos.addRow(new Object[]{rs.getString("UUID_Paciente"), 
+                    rs.getString("Nombre"), 
+                    rs.getInt("Edad"), 
+                    rs.getString("Especialidad")});
+            }
+            //Asignamos el nuevo modelo lleno a la tabla
+            tabla.setModel(modeloDeDatos);
+        } catch (Exception e) {
+            System.out.println("Este es el error en el modelo, metodo mostrar " + e);
+        }
+    }
+    
+    }
+
