@@ -25,10 +25,11 @@ public class ctrlVisitas implements MouseListener {
        vistas.btnEliminar.addMouseListener(this);
        vistas.btnBuscar.addMouseListener(this);
        vistas.btnLimpiar.addMouseListener(this);
+       vistas.jtbPacientes.addMouseListener(this);
        
        
        modelo.Mostrar(vistas.jtbPacientes);
-
+modelo.cargarDatosTabla(vistas);
 
    }
 
@@ -43,10 +44,37 @@ public class ctrlVisitas implements MouseListener {
           modelo.setEspecialidad(vistas.txtEspecialidad.getText());
           
           modelo.Guardar();
-        
+       modelo.Mostrar(vistas.jtbPacientes);
         
         }
+        
+      if  (e.getSource() == vistas.btnEliminar){
+        modelo.Eliminar(vistas.jtbPacientes);
+         modelo.Mostrar(vistas.jtbPacientes);
     }
+      
+      if (e.getSource() == vistas.jtbPacientes){
+      modelo.cargarDatosTabla(vistas);
+      }
+      if(e.getSource() == vistas.btnActualizar){
+      modelo.setNombre(vistas.txtNombre.getText());
+      modelo.setEdad(Integer.parseInt(vistas.txtEdad.getText()));
+      modelo.setEspecialidad(vistas.txtEspecialidad.getText());
+      
+      modelo.Actualizar(vistas.jtbPacientes);
+      modelo.Mostrar(vistas.jtbPacientes);
+      
+    
+   }
+     if(e.getSource() == vistas.btnLimpiar){
+        modelo.limpiar(vistas);
+      
+      }  
+      
+    }
+  
+    
+    
 
     @Override
     public void mousePressed(MouseEvent e) {
